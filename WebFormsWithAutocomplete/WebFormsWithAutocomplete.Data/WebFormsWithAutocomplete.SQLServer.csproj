@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E139C1D6-5155-4CE5-8330-D1D52E7DCB82}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebFormsWithAutocomplete.SQLServer</RootNamespace>
+    <AssemblyName>WebFormsWithAutocomplete.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EFContext.cs" />
+    <Compile Include="Migrations\201507312041262_Initial.cs" />
+    <Compile Include="Migrations\201507312041262_Initial.Designer.cs">
+      <DependentUpon>201507312041262_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507312114268_ChangeProductKey.cs" />
+    <Compile Include="Migrations\201507312114268_ChangeProductKey.Designer.cs">
+      <DependentUpon>201507312114268_ChangeProductKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507312134344_AddCreateData.cs" />
+    <Compile Include="Migrations\201507312134344_AddCreateData.Designer.cs">
+      <DependentUpon>201507312134344_AddCreateData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507312136357_DeleteCode.cs" />
+    <Compile Include="Migrations\201507312136357_DeleteCode.Designer.cs">
+      <DependentUpon>201507312136357_DeleteCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507312139360_AddID.cs" />
+    <Compile Include="Migrations\201507312139360_AddID.Designer.cs">
+      <DependentUpon>201507312139360_AddID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebFormsWithAutocomplete.DataInterfaces\WebFormsWithAutocomplete.RepositoryInterfaces.csproj">
+      <Project>{3b52b84f-8009-4a54-9a96-d0d138ea8de1}</Project>
+      <Name>WebFormsWithAutocomplete.RepositoryInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebFormsWithAutocomplete.Models\WebFormsWithAutocomplete.Models.csproj">
+      <Project>{56b28cc0-42ee-4124-93bd-3fa8a91f81ef}</Project>
+      <Name>WebFormsWithAutocomplete.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201507312041262_Initial.resx">
+      <DependentUpon>201507312041262_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507312114268_ChangeProductKey.resx">
+      <DependentUpon>201507312114268_ChangeProductKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507312134344_AddCreateData.resx">
+      <DependentUpon>201507312134344_AddCreateData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507312136357_DeleteCode.resx">
+      <DependentUpon>201507312136357_DeleteCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507312139360_AddID.resx">
+      <DependentUpon>201507312139360_AddID.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
