@@ -5,14 +5,17 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebFormsWithAutocomplete.Models;
+using WebFormsWithAutocomplete.RepositoryInterfaces;
+using WebFormsWithAutocomplete.SQLServer.Repositories;
 
 namespace WebFormsWithAutocomplete
 {
     public partial class Autocomplete : System.Web.UI.Page
-    {
+    {       
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         [WebMethod]
@@ -22,21 +25,12 @@ namespace WebFormsWithAutocomplete
         }
 
         [WebMethod]
-        public static List<ProductInfo> GetData(string prodCode)
+        public static List<Product> GetData(string prodCode)
         {
-            var result = new List<ProductInfo>() 
-            {
-                new ProductInfo(){Code=prodCode,Name="Sample 1"},
-                new ProductInfo(){Code=prodCode,Name="Sample 2"},
-                new ProductInfo(){Code=prodCode,Name="Sample 3"}
-            };
+            IProductRepository repository = new ProductRepository();
+            var result = repository.GetByCodeAutocomplete(prodCode);
             return result;
         }
     }
 
-    public class ProductInfo
-    {
-        public string Code { get; set; }
-        public string Name { get; set; }
-    }
 }
